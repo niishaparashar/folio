@@ -1,0 +1,16 @@
+from rest_framework import serializers
+from .models import Post
+
+class PostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = [
+            'id',
+            'author-id',
+            'author_username'
+            'title',
+            'content',
+            'created_at',
+            'updated_at'
+            ]
+        read_only_fields = ['id', 'author_id','author_username', 'created_at', 'updated_at']
