@@ -4,6 +4,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from .models import Post
 from .serializers import PostSerializer
+import os
+print("SECRET_KEY LOADED:", os.getenv('SECRET_KEY'))
 
 @api_view(['GET'])
 @permission_classes([AllowAny])

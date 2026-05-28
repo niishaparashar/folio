@@ -32,6 +32,7 @@ def login(request):
     if serializer.is_valid():
         user = serializer.validated_data['user']
         refresh = RefreshToken.for_user(user)
+        refresh['username']= user.username
 
         return Response(
             {

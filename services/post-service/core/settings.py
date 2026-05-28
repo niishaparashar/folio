@@ -132,8 +132,24 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'posts.authentication.NoDBJWTAuthentication',
     ),
 }
 
-AUTH_USER_MODEL = 'auth.User'
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'SIGNING_KEY': 'django-insecure-folio-auth-secret-key-change-in-prod',
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'posts.authentication.NoDBJWTAuthentication',
+    ),
+}
+
+CORS_ALLOW_ALL_ORIGINS = True

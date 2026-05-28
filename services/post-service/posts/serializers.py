@@ -6,8 +6,8 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = [
             'id',
-            'author-id',
-            'author_username'
+            'author_id',
+            'author_username',
             'title',
             'content',
             'created_at',
